@@ -3,7 +3,7 @@
 A static file generator built on top of the modern JavaScript stack.
 
 - Build static site from React component
-- Automatic code reloading
+- Automatic refresh
 - Zero setup
 
 ## Usage
