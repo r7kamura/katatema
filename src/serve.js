@@ -1,10 +1,12 @@
 import http from "http";
 import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
+import WriteFilePlugin from "write-file-webpack-plugin"
 
 const webpackCompiler = webpack({
   entry: {
-    "index": "./pages/index.js",
+    "about.js": "./pages/about.js",
+    "index.js": "./pages/index.js",
   },
   module: {
     loaders: [
@@ -15,21 +17,21 @@ const webpackCompiler = webpack({
   },
   output: {
     filename: "[name]",
-    libraryTarget: 'commonjs2',
-    path: `${process.cwd()}/modan-cache`,
-    publicPath: "http://localhost:4000/",
+    // libraryTarget: "commonjs2",
+    path: `${process.cwd()}/.modan-cache`,
+    // publicPath: "http://localhost:4000/",
   },
-  resolve: {
-    extensions: [
-      "",
-      ".js",
-      ".jsx",
-      ".scss",
-    ],
-    root: [
-      "./node_modules",
-    ],
-  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production")
+    }),
+    new WriteFilePlugin({
+      exitOnErrors: false,
+      log: false,
+      useHashIndex: false, // required not to cache removed files
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 });
 
 const webpackDevServer = new WebpackDevServer(
@@ -78,6 +80,7 @@ export default () => {
       if (error) {
         reject(error);
       } else {
+        console.log("Webpack dev server started on http://localhost:4000");
         resolve();
       }
     });
@@ -87,6 +90,7 @@ export default () => {
         if (error) {
           reject(error);
         } else {
+          console.log("HTTP server started on http://localhost:3000");
           resolve();
         }
       });
