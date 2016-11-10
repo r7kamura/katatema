@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { join } from "path";
 import { spawn } from "cross-spawn";
 
 const commandName = process.argv[2];
@@ -10,7 +9,7 @@ const availableCommandNames = new Set([
 
 if (availableCommandNames.has(commandName)) {
   const spawnedProcess = spawn(
-    `${dirname}/modan-${commandName}`,
+    `${__dirname}/modan-${commandName}`,
     process.argv.slice(3),
     {
       customFds: [0, 1, 2],
