@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import build from "../lib/build";
+import serve from "../lib/serve";
 
-build().catch((error) => {
+serve().catch((error) => {
   console.error(error);
   process.exit(1);
 });
