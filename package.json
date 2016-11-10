@@ -1,0 +1,7 @@
+{
+  "name": "modan",
+  "version": "0.0.1",
+  "description": "A static file generator built on top of React, Webpack, and Babel.",
+  "author": "Ryo Nakamura <r7kamura@gmail.com> (https://github.com/r7kamura)",
+  "license": "MIT"
+}
