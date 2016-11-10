@@ -1,7 +1,20 @@
 {
   "name": "modan",
-  "version": "0.0.1",
   "description": "A static file generator built on top of React, Webpack, and Babel.",
+  "version": "0.0.1",
   "author": "Ryo Nakamura <r7kamura@gmail.com> (https://github.com/r7kamura)",
-  "license": "MIT"
+  "bugs": "https://github.com/r7kamura/modan/issues",
+  "devDependencies": {
+    "fixpack": "^2.3.1"
+  },
+  "homepage": "https://github.com/r7kamura/modan",
+  "keywords": [
+    "static site generator"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "repository": "r7kamura/modan",
+  "scripts": {
+    "lint": "fixpack"
+  }
 }
