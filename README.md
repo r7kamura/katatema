@@ -10,11 +10,10 @@ A minimalistic static site generator.
 
 ### Install
 
-To start using it, install `modan` and create `pages` directory:
+Install `modan`:
 
 ```bash
 npm install modan --save-dev
-mkdir pages
 ```
 
 then, add scripts to the `package.json` like this:
@@ -32,7 +31,7 @@ then, add scripts to the `package.json` like this:
 
 `modan serve` starts a local preview server on [http://localhost:3000](http://localhost:3000).
 
-Populate `pages/index.js`:
+Create `pages/index.js` that exports a React component:
 
 ```javascript
 import React from "react";
