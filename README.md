@@ -16,7 +16,7 @@ Install `modan`:
 npm install modan --save-dev
 ```
 
-then, add scripts to the `package.json` like this:
+and add scripts to the `package.json` like this:
 
 ```json
 {
@@ -29,8 +29,6 @@ then, add scripts to the `package.json` like this:
 
 ### Serve
 
-`modan serve` starts a local preview server on [http://localhost:3000](http://localhost:3000).
-
 Create `pages/index.js` that exports a React component:
 
 ```javascript
@@ -38,7 +36,7 @@ import React from "react";
 export default () => <div>Hello</div>
 ```
 
-and execute:
+and execute `modan serve` to start a preview server on [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run serve
@@ -48,8 +46,10 @@ npm run serve
 
 ### Build
 
-`modan build` generates HTML files from `pages/*.js` into `docs/*.html`.
+Execute `modan build` to generate HTML files from `pages/*.js` into `docs/*.html`.
 
 ```bash
 npm run build
 ```
+
+![image](/images/screenshot-build.png)
