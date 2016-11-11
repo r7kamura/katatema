@@ -53,3 +53,22 @@ npm run build
 ```
 
 ![image](/images/screenshot-build.png)
+
+## Tips
+
+### Head
+
+Use `Head` component to change the `<head>` element.
+
+```javascript
+import { Head } from "modan";
+import React from "react";
+export default () => (
+  <div>
+    <Head>
+      <title>Hello</title>
+    </Head>
+    <h1>World</h1>
+  </div>
+)
+```
