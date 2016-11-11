@@ -1,3 +1,4 @@
+import createWebpackCompiler from "./create-webpack-compiler";
 import http from "http";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
@@ -5,44 +6,7 @@ import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
 import WriteFilePlugin from "write-file-webpack-plugin"
 
-const webpackCompiler = webpack({
-  entry: {
-    "about.js": "./pages/about.js",
-    "index.js": "./pages/index.js",
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: "file",
-        include: [process.cwd()],
-        query: {
-          name: "babel-compiled/[name].[ext]"
-        },
-      },
-      {
-        loader: "babel",
-      }
-    ],
-  },
-  output: {
-    filename: "webpack-bundles/[name]",
-    // libraryTarget: "commonjs2",
-    path: `${process.cwd()}/.modan-cache`,
-    // publicPath: "http://localhost:4000/",
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production")
-    }),
-    new WriteFilePlugin({
-      exitOnErrors: false,
-      log: false,
-      useHashIndex: false, // required not to cache removed files
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
-});
+const webpackCompiler = createWebpackCompiler();
 
 const webpackDevServer = new WebpackDevServer(
   webpackCompiler,
@@ -90,7 +54,7 @@ const httpServer = http.createServer((request, response) => {
   });
 });
 
-export default () => {
+export default function serve() {
   return new Promise((resolve, reject) => {
     webpackDevServer.listen(4000, (error) => {
       if (error) {
