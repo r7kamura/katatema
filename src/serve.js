@@ -1,4 +1,6 @@
 import http from "http";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
 import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
 import WriteFilePlugin from "write-file-webpack-plugin"
@@ -11,12 +13,20 @@ const webpackCompiler = webpack({
   module: {
     loaders: [
       {
+        test: /\.js$/,
+        loader: "file",
+        include: [process.cwd()],
+        query: {
+          name: "babel-compiled/[name].[ext]"
+        },
+      },
+      {
         loader: "babel",
       }
     ],
   },
   output: {
-    filename: "[name]",
+    filename: "webpack-bundles/[name]",
     // libraryTarget: "commonjs2",
     path: `${process.cwd()}/.modan-cache`,
     // publicPath: "http://localhost:4000/",
@@ -62,7 +72,13 @@ const webpackDevServer = new WebpackDevServer(
 
 const httpServer = http.createServer((request, response) => {
   new Promise((resolve) => {
-    const html = "Hello";
+    let path = request.url;
+    if (path.endsWith("/")) {
+      path += "index";
+    }
+    const mod = require(`${process.cwd()}/.modan-cache/babel-compiled${path}.js`);
+    const Component = mod.default || mod;
+    const html = ReactDOMServer.renderToString(<Component/>);
     response.setHeader("Content-Type", "text/html");
     response.setHeader("Content-Length", Buffer.byteLength(html));
     response.end(html);
