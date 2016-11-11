@@ -1,10 +1,7 @@
 import createWebpackCompiler from "./create-webpack-compiler";
 import http from "http";
-import React from "react";
-import ReactDOMServer from "react-dom/server";
-import webpack from "webpack";
+import render from "./render";
 import WebpackDevServer from "webpack-dev-server";
-import WriteFilePlugin from "write-file-webpack-plugin"
 
 const webpackCompiler = createWebpackCompiler();
 
@@ -42,7 +39,7 @@ const httpServer = http.createServer((request, response) => {
     }
     const mod = require(`${process.cwd()}/.modan-cache/babel-compiled${path}.js`);
     const Component = mod.default || mod;
-    const html = ReactDOMServer.renderToString(<Component/>);
+    const html = render(Component);
     response.setHeader("Content-Type", "text/html");
     response.setHeader("Content-Length", Buffer.byteLength(html));
     response.end(html);
