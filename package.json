@@ -1,6 +1,6 @@
 {
   "name": "modan",
-  "description": "A static file generator built on top of React, Webpack, and Babel.",
+  "description": "A minimalistic static site generator.",
   "version": "0.0.1",
   "author": "Ryo Nakamura <r7kamura@gmail.com> (https://github.com/r7kamura)",
   "bin": "./dist/bin/modan",
