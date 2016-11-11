@@ -3,5 +3,5 @@ import ReactDOMServer from "react-dom/server";
 
 export default function render(Component) {
   const html = ReactDOMServer.renderToString(<Component/>);
-  return(html);
+  return `<!DOCTYPE html>\n${html}`;
 }
