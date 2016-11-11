@@ -25,7 +25,5 @@ export default function build() {
       console.log(`Building ${htmlPath}`);
       fs.writeFile(htmlPath, html);
     });
-  }).catch((error) => {
-    console.log(error);
   });
 }
