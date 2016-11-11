@@ -1,3 +1,4 @@
+import Head from "./head";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
@@ -5,9 +6,15 @@ class Html extends React.Component {
   render() {
     return(
       <html>
-        <head></head>
+        <head>
+          {
+            (this.props.headChildren || []).map((child, index) => {
+              return React.cloneElement(child, { key: index });
+            })
+          }
+        </head>
         <body>
-          {this.props.children}
+          <div id="container" dangerouslySetInnerHTML={{ __html: this.props.innerHtml }}/>
         </body>
       </html>
     );
@@ -15,10 +22,7 @@ class Html extends React.Component {
 }
 
 export default function render(Component) {
-  const html = ReactDOMServer.renderToString(
-    <Html>
-      <Component/>
-    </Html>
-  );
+  const innerHtml = ReactDOMServer.renderToString(<Component/>);
+  const html = ReactDOMServer.renderToString(<Html headChildren={Head.rewind()} innerHtml={innerHtml}/>);
   return `<!DOCTYPE html>\n${html}`;
 }

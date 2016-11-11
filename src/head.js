@@ -1,0 +1,42 @@
+import React from "react";
+
+let idealHeadChildren;
+const mountedHeads = new Set();
+
+function updateCurrentHeadChildren() {
+  idealHeadChildren = ([...mountedHeads]).map((element) => {
+    return element.props.children;
+  }).filter((children) => {
+    return !!children;
+  }).reduce((a, b) => {
+    return a.concat(b);
+  }, []).map((child) => {
+    return React.cloneElement(child);
+  });
+}
+
+export default class Head extends React.Component {
+  static rewind() {
+    const headerChildren = idealHeadChildren;
+    idealHeadChildren = [];
+    return headerChildren;
+  }
+
+  componentWillMount() {
+    mountedHeads.add(this);
+    updateCurrentHeadChildren();
+  }
+
+  componentDidUpdate() {
+    updateCurrentHeadChildren();
+  }
+
+  componentWillUnmount() {
+    mountedHeads.delete(this);
+    updateCurrentHeadChildren();
+  }
+
+  render() {
+    return null;
+  }
+}
