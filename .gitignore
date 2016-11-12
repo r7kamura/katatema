@@ -1,5 +1,6 @@
+/.modan-cache
 /dist
 /docs
 /node_modules
+/npm-debug.log
 /pages
-/.modan-cache
