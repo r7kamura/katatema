@@ -2,7 +2,7 @@
 
 A minimalistic static site generator.
 
-- Build static site from React component
+- Build HTML files from React component
 - Automatic refresh
 - Zero setup
 
