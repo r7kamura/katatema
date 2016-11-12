@@ -4,11 +4,10 @@ import glob from "glob-promise";
 import render from "./render";
 
 export default function build() {
-  return createWebpackCompiler().then((webpackCompiler) => {
+  return createWebpackCompiler({ hotReloadable: false }).then((webpackCompiler) => {
     return new Promise((resolve, reject) => {
       webpackCompiler.run((error, stats) => {
         if (error) {
-          console.log(1);
           reject(error);
         } else {
           const jsonStats = stats.toJson();

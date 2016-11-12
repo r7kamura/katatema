@@ -3,32 +3,59 @@ import glob from "glob-promise";
 import webpack from "webpack";
 import WriteFilePlugin from "write-file-webpack-plugin"
 
-export default function createWebpackCompiler() {
-  const dir = resolve(".");
-  return glob("pages/**/*.js", { cwd: dir }).then((pagePaths) => {
+function getEntryAsync({ currentWorkingDirectory, hotReloadable }) {
+  return glob("pages/**/*.js", { cwd: currentWorkingDirectory }).then((pagePaths) => {
+    return pagePaths.reduce((result, pagePath) => {
+      result[`bundles/${pagePath}`] = [`./${pagePath}`];
+      if (hotReloadable) {
+        result[`bundles/${pagePath}`].unshift("webpack/hot/dev-server");
+      }
+      return result;
+    }, {});
+  });
+}
+
+function getPlugins({ hotReloadable }) {
+  const plugins = [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    }),
+    new WriteFilePlugin({
+      exitOnErrors: false,
+      log: false,
+      useHashIndex: false, // required not to cache removed files
+    }),
+  ];
+  if (hotReloadable) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+  }
+  return plugins;
+}
+
+export default function createWebpackCompiler({ hotReloadable }) {
+  const currentWorkingDirectory = resolve(".");
+  return getEntryAsync({ currentWorkingDirectory, hotReloadable }).then((entry) => {
     return webpack({
-      context: dir,
-      entry: pagePaths.reduce((result, pagePath) => {
-        result[`bundles/${pagePath}`] = `./${pagePath}`;
-        return result;
-      }, {}),
+      entry,
+      context: currentWorkingDirectory,
       module: {
         loaders: [
           {
-            test: /\.js$/,
+            exclude: /node_modules/,
+            include: [currentWorkingDirectory],
             loader: "file",
-            include: [dir],
             query: {
               name: "dist/[path][name].[ext]"
             },
+            test: /\.js$/,
           },
           {
             exclude: /node_modules/,
             loader: "babel",
             query: {
               presets: [
-                require.resolve("babel-preset-es2015"),
-                require.resolve("babel-preset-react"),
+                "es2015",
+                "react",
               ],
             },
           }
@@ -37,20 +64,22 @@ export default function createWebpackCompiler() {
       output: {
         filename: "[name]",
         libraryTarget: "commonjs2",
-        path: `${dir}/.modan-cache`,
-        publicPath: "http://localhost:4000/",
+        path: `${currentWorkingDirectory}/.modan-cache`,
+        publicPath: hotReloadable ? "http://localhost:4000/" : null,
       },
-      plugins: [
-        new webpack.DefinePlugin({
-          "process.env.NODE_ENV": JSON.stringify("production")
-        }),
-        new WriteFilePlugin({
-          exitOnErrors: false,
-          log: false,
-          useHashIndex: false, // required not to cache removed files
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-      ],
+      plugins: getPlugins({ hotReloadable }),
+      resolve: {
+        extensions: [
+          "",
+          ".js",
+          ".jsx",
+          ".scss",
+        ],
+        root: [
+          `${__dirname}/../../node_modules`,
+          `${currentWorkingDirectory}/node_modules`,
+        ],
+      },
       resolveLoader: {
         root: [
           `${__dirname}/../../node_modules`,
