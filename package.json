@@ -38,6 +38,6 @@
     "build:mkdir-bin": "mkdir -p dist/bin",
     "build:remove-dist": "rm -rf dist",
     "lint": "fixpack",
-    "test": "yard run lint"
+    "test": "yarn run lint"
   }
 }
