@@ -61,7 +61,7 @@ npm run build
 Use `Head` component to change the `<head>` element.
 
 ```javascript
-import { Head } from "modan";
+import Head from "modan/head";
 import React from "react";
 export default () => (
   <div>
