@@ -22,12 +22,12 @@ export default class Head extends React.Component {
     return headerChildren;
   }
 
-  componentWillMount() {
-    mountedHeads.add(this);
+  componentDidUpdate() {
     updateCurrentHeadChildren();
   }
 
-  componentDidUpdate() {
+  componentWillMount() {
+    mountedHeads.add(this);
     updateCurrentHeadChildren();
   }
 
