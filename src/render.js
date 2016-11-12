@@ -24,5 +24,5 @@ class Html extends React.Component {
 export default function render(Component) {
   const innerHtml = ReactDOMServer.renderToString(<Component/>);
   const html = ReactDOMServer.renderToString(<Html headChildren={Head.rewind()} innerHtml={innerHtml}/>);
-  return `<!DOCTYPE html>\n${html}`;
+  return `<!DOCTYPE html>\n${html}\n`;
 }
