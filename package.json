@@ -37,7 +37,6 @@
     "build:copy-files": "cp package.json LICENSE.txt dist",
     "build:mkdir-bin": "mkdir -p dist/bin",
     "build:remove-dist": "rm -rf dist",
-    "lint": "fixpack",
-    "test": "babel-node bin/modan build"
+    "lint": "fixpack"
   }
 }
