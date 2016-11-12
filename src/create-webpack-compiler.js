@@ -53,6 +53,17 @@ export default function createWebpackCompiler({ hotReloadable }) {
             exclude: /node_modules/,
             loader: "babel",
             query: {
+              plugins: [
+                [
+                  require.resolve("babel-plugin-module-resolver"),
+                  {
+                    alias: {
+                      react: require.resolve("react"),
+                      "modan/head": require.resolve("./head"),
+                    },
+                  },
+                ],
+              ],
               presets: [
                 "es2015",
                 "react",
