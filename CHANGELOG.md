@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Fix npm-published files
+
 ## 0.0.4
 
 - Change dist directory structure
