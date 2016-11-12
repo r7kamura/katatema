@@ -10,7 +10,7 @@ export default class HttpServer {
         if (path.endsWith("/")) {
           path += "index";
         }
-        const mod = require(`${process.cwd()}/.modan-cache/babel-compiled${path}.js`);
+        const mod = require(`${process.cwd()}/.modan-cache/dist/pages${path}.js`);
         const Component = mod.default || mod;
         const html = render(Component);
         response.setHeader("Content-Type", "text/html");
