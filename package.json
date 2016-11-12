@@ -36,7 +36,7 @@
   "repository": "r7kamura/modan",
   "scripts": {
     "build": "yarn run build:clean && yarn run build:mkdir && yarn run build:bin && yarn run build:lib && yarn run build:permission",
-    "build:bin": "babel ./bin/modan --out-file ./dist/bin/modan && babel ./bin/modan-build --out-file ./dist/bin/modan-build && babel ./bin/modan-serve --out-file ./dist/bin/modan-serve",
+    "build:bin": "babel bin --out-dir ./dist/bin",
     "build:clean": "rm -rf ./dist",
     "build:lib": "babel ./src --out-dir ./dist/lib",
     "build:mkdir": "mkdir -p ./dist/bin",

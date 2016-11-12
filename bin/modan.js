@@ -9,7 +9,7 @@ const availableCommandNames = new Set([
 
 if (availableCommandNames.has(commandName)) {
   const spawnedProcess = spawn(
-    `${__dirname}/modan-${commandName}`,
+    `${__dirname}/modan-${commandName}.js`,
     process.argv.slice(3),
     {
       customFds: [0, 1, 2],
