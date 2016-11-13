@@ -7,7 +7,8 @@ function evalScript(script) {
   return module.exports;
 }
 
-const Component = evalScript(window.modanData.componentScript).default;
+const mod = evalScript(window.modanData.componentScript)
+const Component = mod.default || mod;
 ReactDOM.render(
   <Component/>,
   document.getElementById("container")
