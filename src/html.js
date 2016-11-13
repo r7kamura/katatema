@@ -15,9 +15,17 @@ export default class Html extends React.Component {
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: this.props.innerHtml }}/>
           <script dangerouslySetInnerHTML={{ __html: `window.modanData = ${htmlescape(this.props.modanData)}` }}/>
-          <script src="/javascripts/modan-client.js"/>
+          {this.renderClientScript()}
         </body>
       </html>
     );
+  }
+
+  renderClientScript() {
+    if (this.props.hotReloadable) {
+      return <script src="/javascripts/modan-hot-reloadable-client.js"/>;
+    } else {
+      return <script src="/javascripts/modan-client.js"/>;
+    }
   }
 }

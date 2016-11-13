@@ -3,12 +3,18 @@ const webpack = require("webpack");
 const config = {
   entry: {
     "client/modan-client.js": "./client/modan-client.js",
+    "client/modan-hot-reloadable-client.js": "./client/modan-hot-reloadable-client.js",
   },
   module: {
     loaders: [
       {
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: "babel",
+        query: {
+          plugins: [
+            "babel-plugin-transform-remove-strict-mode",
+          ]
+        },
         test: /\.jsx?$/,
       },
     ],
