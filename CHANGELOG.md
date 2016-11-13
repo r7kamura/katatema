@@ -1,3 +1,7 @@
+## 0.1.0
+
+- Evaluate script at client side
+
 ## 0.0.5
 
 - Fix npm-published files
