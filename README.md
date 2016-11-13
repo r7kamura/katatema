@@ -66,9 +66,25 @@ import React from "react";
 export default () => (
   <div>
     <Head>
-      <title>Hello</title>
+      <meta charset="utf-8">
+      <title>Hello world</title>
     </Head>
-    <h1>World</h1>
+    <h1>Hello world</h1>
   </div>
 )
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello world</title>
+  </head>
+  <body>
+    <div id="container">
+      Hello world
+    </div>
+  </body>
+</html>
 ```
