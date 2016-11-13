@@ -65,8 +65,8 @@ export default function createWebpackCompiler({ hotReloadable }) {
                 ],
               ],
               presets: [
-                require.resolve("babel-preset-es2015"),
-                require.resolve("babel-preset-react"),
+                "es2015",
+                "react",
               ],
             },
           },
@@ -94,6 +94,7 @@ export default function createWebpackCompiler({ hotReloadable }) {
       resolveLoader: {
         root: [
           `${__dirname}/../../node_modules`,
+          __dirname,
         ]
       },
     });

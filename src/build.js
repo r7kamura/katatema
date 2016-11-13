@@ -1,5 +1,5 @@
 import createWebpackCompiler from "./create-webpack-compiler";
-import fs from "fs";
+import fs from "fs-extra";
 import glob from "glob-promise";
 import render from "./render";
 
@@ -28,10 +28,14 @@ export default function build() {
       const html = render(path);
       const htmlPath = path.replace("pages", "docs").replace(".js", ".html");
       console.log(`Building ${htmlPath}`);
-      if (!fs.existsSync("./docs")) {
-        fs.mkdirSync("./docs");
+      if (!fs.existsSync("docs")) {
+        fs.mkdirSync("docs");
       }
       fs.writeFile(htmlPath, html);
     });
+    if (!fs.existsSync("docs/javascripts")) {
+      fs.mkdirSync("docs/javascripts");
+    }
+    fs.copySync(`${__dirname}/client/modan-client.js`, "docs/javascripts/modan-client.js");
   });
 }
