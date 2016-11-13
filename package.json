@@ -17,6 +17,7 @@
     "glob-promise": "^1.0.6",
     "htmlescape": "^1.1.1",
     "loader-utils": "^0.2.16",
+    "path-match": "^1.2.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "webpack": "^1.13.3",
