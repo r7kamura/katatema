@@ -43,7 +43,7 @@ export default function createWebpackCompiler({ hotReloadable }) {
           {
             exclude: /node_modules/,
             include: [currentWorkingDirectory],
-            loader: "file",
+            loader: "emit-file",
             query: {
               name: "dist/[path][name].[ext]"
             },
@@ -65,11 +65,11 @@ export default function createWebpackCompiler({ hotReloadable }) {
                 ],
               ],
               presets: [
-                "es2015",
-                "react",
+                require.resolve("babel-preset-es2015"),
+                require.resolve("babel-preset-react"),
               ],
             },
-          }
+          },
         ],
       },
       output: {

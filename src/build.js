@@ -25,9 +25,7 @@ export default function build() {
     return glob("pages/**/*.js");
   }).then((paths) => {
     paths.forEach((path) => {
-      const mod = require(`${process.cwd()}/.modan-cache/dist/${path}`);
-      const Component = mod.default || mod;
-      const html = render(Component);
+      const html = render(path);
       const htmlPath = path.replace("pages", "docs").replace(".js", ".html");
       console.log(`Building ${htmlPath}`);
       if (!fs.existsSync("./docs")) {

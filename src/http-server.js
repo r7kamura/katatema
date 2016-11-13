@@ -10,9 +10,7 @@ export default class HttpServer {
         if (path.endsWith("/")) {
           path += "index";
         }
-        const mod = require(`${process.cwd()}/.modan-cache/dist/pages${path}.js`);
-        const Component = mod.default || mod;
-        const html = render(Component);
+        const html = render(`pages${path}.js`);
         response.setHeader("Content-Type", "text/html");
         response.setHeader("Content-Length", Buffer.byteLength(html));
         response.end(html);
