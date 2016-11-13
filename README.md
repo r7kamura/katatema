@@ -3,8 +3,8 @@
 A minimalistic static site generator.
 
 - Build HTML files from React component
-- Automatic refresh
-- Zero setup
+- Zero setup by running Webpack unobtrusively
+- Automatic refresh by Hot Module Replacement
 
 ## Usage
 
