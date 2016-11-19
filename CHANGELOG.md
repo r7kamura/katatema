@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Support auto-refresh by Hot Module Replacement
+
 ## 0.1.0
 
 - Evaluate script at client side
