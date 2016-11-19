@@ -82,7 +82,7 @@ export default function createWebpackCompiler({ hotReloadable }) {
       output: {
         filename: "[name]",
         libraryTarget: "commonjs2",
-        path: `${currentWorkingDirectory}/.modan-cache`,
+        path: `${currentWorkingDirectory}/.modan`,
         publicPath: hotReloadable ? "http://localhost:4000/" : null,
       },
       plugins: getPlugins({ hotReloadable }),
