@@ -1,8 +1,11 @@
-import "react-hot-loader/patch";
 import "webpack-dev-server/client?http://localhost:4000";
 
+import EventEmitter from "events";
 import React from "react";
 import ReactDOM from "react-dom";
+import UpdatableComponent from "../src/updatable-component";
+
+global.modan = { eventEmitter: new EventEmitter() };
 
 function evalScript(script) {
   const module = { exports: {} };
@@ -10,11 +13,9 @@ function evalScript(script) {
   return module.exports;
 }
 
-const context = { evalScript };
-
-const mod = context.evalScript(window.modanData.componentScript)
+const mod = evalScript(window.modanData.componentScript)
 const Component = mod.default || mod;
 ReactDOM.render(
-  <Component/>,
+  <UpdatableComponent Component={Component} eventEmitter={global.modan.eventEmitter}/>,
   document.getElementById("container")
 );

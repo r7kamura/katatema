@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import glob from "glob-promise";
 import webpack from "webpack";
-import WriteFilePlugin from "write-file-webpack-plugin"
+import WriteFilePlugin from "write-file-webpack-plugin";
 
 function getEntryAsync({ currentWorkingDirectory, hotReloadable }) {
   return glob("pages/**/*.js", { cwd: currentWorkingDirectory }).then((pagePaths) => {
@@ -47,6 +47,13 @@ export default function createWebpackCompiler({ hotReloadable }) {
             query: {
               name: "dist/[path][name].[ext]"
             },
+            test: /\.js$/,
+          },
+          {
+            include: [
+              `${process.cwd()}/pages`,
+            ],
+            loader: "hot-self-accept-loader",
             test: /\.js$/,
           },
           {
