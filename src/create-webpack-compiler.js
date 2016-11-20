@@ -100,7 +100,7 @@ export default function createWebpackCompiler({ hotReloadable }) {
       },
       resolveLoader: {
         root: [
-          `${__dirname}/../../node_modules`,
+          `${__dirname}/../node_modules`,
           __dirname,
         ]
       },
