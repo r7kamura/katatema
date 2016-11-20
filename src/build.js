@@ -25,9 +25,9 @@ export default function build() {
     return glob("pages/**/*.js");
   }).then((paths) => {
     paths.forEach((path) => {
-      const html = render(path, { hotReloadable: false });
       const htmlPath = path.replace("pages", "docs").replace(".js", ".html");
       console.log(`Building ${htmlPath}`);
+      const html = render(path, { hotReloadable: false });
       if (!fs.existsSync("docs")) {
         fs.mkdirSync("docs");
       }
