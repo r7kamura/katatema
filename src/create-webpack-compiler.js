@@ -3,12 +3,13 @@ import glob from "glob-promise";
 import webpack from "webpack";
 import WriteFilePlugin from "write-file-webpack-plugin";
 
-function getEntryAsync({ currentWorkingDirectory, hotReloadable }) {
+function getEntryAsync({ currentWorkingDirectory, hotReloadable, isServer }) {
+  const directoryName = isServer ? "server-bundles" : "client-bundles";
   return glob("pages/**/*.js", { cwd: currentWorkingDirectory }).then((pagePaths) => {
     return pagePaths.reduce((result, pagePath) => {
-      result[`bundles/${pagePath}`] = [`./${pagePath}`];
+      result[`${directoryName}/${pagePath}`] = [`./${pagePath}`];
       if (hotReloadable) {
-        result[`bundles/${pagePath}`].unshift("webpack/hot/dev-server");
+        result[`${directoryName}/${pagePath}`].unshift("webpack/hot/dev-server");
       }
       return result;
     }, {});
@@ -32,23 +33,14 @@ function getPlugins({ hotReloadable }) {
   return plugins;
 }
 
-export default function createWebpackCompiler({ hotReloadable }) {
+export default function createWebpackCompiler({ hotReloadable, isServer }) {
   const currentWorkingDirectory = resolve(".");
-  return getEntryAsync({ currentWorkingDirectory, hotReloadable }).then((entry) => {
+  return getEntryAsync({ currentWorkingDirectory, hotReloadable, isServer }).then((entry) => {
     return webpack({
       entry,
       context: currentWorkingDirectory,
       module: {
         loaders: [
-          {
-            exclude: /node_modules/,
-            include: [currentWorkingDirectory],
-            loader: "emit-file",
-            query: {
-              name: "dist/[path][name].[ext]"
-            },
-            test: /\.js$/,
-          },
           {
             include: [
               `${process.cwd()}/pages`,

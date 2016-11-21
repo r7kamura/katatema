@@ -25,14 +25,13 @@ export default class Router {
     const routes = this.routesMap.get(request.method);
     if (routes) {
       const { pathname } = url.parse(request.url);
-      routes.forEach(({ callback, match }) => {
-        const params = match(pathname);
-        if (params) {
-          return new Promise((resolve) => {
-            callback(request, response, params);
-          });
+      for (const route of routes) {
+        const parameters = route.match(pathname);
+        if (parameters) {
+          route.callback(request, response, parameters);
+          return;
         }
-      });
+      }
     }
   }
 }

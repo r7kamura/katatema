@@ -15,9 +15,14 @@ function createRouter() {
         path += "index";
       }
       const html = render(`pages${path}.js`, { hotReloadable: true });
-      response.setHeader("Content-Type", "text/html");
-      response.setHeader("Content-Length", Buffer.byteLength(html));
-      response.end(html);
+      if (html) {
+        response.setHeader("Content-Type", "text/html");
+        response.setHeader("Content-Length", Buffer.byteLength(html));
+        response.end(html);
+      } else {
+        response.statusCode = 404;
+        response.end("Not found");
+      }
     } catch (error) {
       console.error(error);
       response.end(error);

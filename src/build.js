@@ -4,7 +4,7 @@ import glob from "glob-promise";
 import render from "./render";
 
 export default function build() {
-  return createWebpackCompiler({ hotReloadable: false }).then((webpackCompiler) => {
+  return createWebpackCompiler({ hotReloadable: false, isServer: true }).then((webpackCompiler) => {
     return new Promise((resolve, reject) => {
       webpackCompiler.run((error, stats) => {
         if (error) {
