@@ -9,14 +9,19 @@ function createRouter() {
     send(request, `${__dirname}/client/modan-hot-reloadable-client.js`).pipe(response);
   });
   router.get("/:path*", (request, response, params) => {
-    let path = request.url;
-    if (path.endsWith("/")) {
-      path += "index";
+    try {
+      let path = request.url;
+      if (path.endsWith("/")) {
+        path += "index";
+      }
+      const html = render(`pages${path}.js`, { hotReloadable: true });
+      response.setHeader("Content-Type", "text/html");
+      response.setHeader("Content-Length", Buffer.byteLength(html));
+      response.end(html);
+    } catch (error) {
+      console.error(error);
+      response.end(error);
     }
-    const html = render(`pages${path}.js`, { hotReloadable: true });
-    response.setHeader("Content-Type", "text/html");
-    response.setHeader("Content-Length", Buffer.byteLength(html));
-    response.end(html);
   });
   return router;
 }
