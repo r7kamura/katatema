@@ -88,3 +88,29 @@ export default () => (
   </body>
 </html>
 ```
+
+### CSS
+
+```javascript
+import Head from "modan/head";
+import React from "react";
+import Style from "./main.scss";
+export default () => (
+  <div className="foo">
+    <Head>
+      <Style/>
+    </Head>
+    <h1 className="bar">Hello world</h1>
+  </div>
+)
+```
+
+```scss
+.foo {
+  background-color: red;
+}
+
+.bar {
+  color: white;
+}
+```

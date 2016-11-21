@@ -45,8 +45,12 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
             include: [
               `${process.cwd()}/pages`,
             ],
-            loader: "hot-self-accept-loader",
+            loader: "hot-self-accept",
             test: /\.js$/,
+          },
+          {
+            loaders: ["style-component", "css", "sass"],
+            test: /\.scss$/,
           },
           {
             exclude: /node_modules/,
@@ -68,6 +72,7 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
                 "react",
               ],
             },
+            test: /\.js$/,
           },
         ],
       },
