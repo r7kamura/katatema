@@ -1,3 +1,9 @@
+## 0.1.2
+
+- Add HMR support on head element
+- Add Sass support
+- Rename cache directory from .modan-cache to .modan
+
 ## 0.1.1
 
 - Support auto-refresh by Hot Module Replacement

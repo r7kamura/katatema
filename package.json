@@ -1,7 +1,7 @@
 {
   "name": "modan",
   "description": "A minimalistic static site generator.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Ryo Nakamura <r7kamura@gmail.com> (https://github.com/r7kamura)",
   "bin": "bin/modan.js",
   "bugs": "https://github.com/r7kamura/modan/issues",
