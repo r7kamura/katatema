@@ -27,7 +27,11 @@ function getPlugins({ hotReloadable }) {
       useHashIndex: false, // required not to cache removed files
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      }
+    }),
   ];
   if (hotReloadable) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
