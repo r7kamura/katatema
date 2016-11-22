@@ -2,7 +2,7 @@ import createWebpackCompiler from "./create-webpack-compiler";
 
 export default class WebpackWatcher {
   run() {
-    return createWebpackCompiler({ hotReloadable: false, isServer: true }).then((webpackCompiler) => {
+    return createWebpackCompiler({ hotReloadable: false }).then((webpackCompiler) => {
       return new Promise((resolve, reject) => {
         webpackCompiler.watch({}, (error, stats) => {
           if (error) {

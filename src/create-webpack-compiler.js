@@ -3,8 +3,8 @@ import glob from "glob-promise";
 import webpack from "webpack";
 import WriteFilePlugin from "write-file-webpack-plugin";
 
-function getEntryAsync({ currentWorkingDirectory, hotReloadable, isServer }) {
-  const directoryName = isServer ? "server-bundles" : "client-bundles";
+function getEntryAsync({ currentWorkingDirectory, hotReloadable }) {
+  const directoryName = hotReloadable ? "client-bundles" : "server-bundles";
   return glob("pages/**/*.js", { cwd: currentWorkingDirectory }).then((pagePaths) => {
     return pagePaths.reduce((result, pagePath) => {
       result[`${directoryName}/${pagePath}`] = [`./${pagePath}`];
@@ -16,7 +16,7 @@ function getEntryAsync({ currentWorkingDirectory, hotReloadable, isServer }) {
   });
 }
 
-function getPlugins({ hotReloadable }) {
+function getPlugins({ hotReloadable, optimize }) {
   const plugins = [
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production"),
@@ -26,22 +26,26 @@ function getPlugins({ hotReloadable }) {
       log: false,
       useHashIndex: false, // required not to cache removed files
     }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      }
-    }),
   ];
   if (hotReloadable) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
+  if (optimize) {
+    plugins.push(
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false,
+        }
+      })
+    );
+  }
   return plugins;
 }
 
-export default function createWebpackCompiler({ hotReloadable, isServer }) {
+export default function createWebpackCompiler({ hotReloadable, optimize }) {
   const currentWorkingDirectory = resolve(".");
-  return getEntryAsync({ currentWorkingDirectory, hotReloadable, isServer }).then((entry) => {
+  return getEntryAsync({ currentWorkingDirectory, hotReloadable, optimize }).then((entry) => {
     return webpack({
       entry,
       context: currentWorkingDirectory,
@@ -87,7 +91,7 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
         path: `${currentWorkingDirectory}/.katatema`,
         publicPath: hotReloadable ? "http://localhost:4000/" : null,
       },
-      plugins: getPlugins({ hotReloadable }),
+      plugins: getPlugins({ hotReloadable, optimize }),
       resolve: {
         extensions: [
           "",

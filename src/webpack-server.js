@@ -7,7 +7,7 @@ export default class WebpackServer {
   }
 
   run() {
-    return createWebpackCompiler({ hotReloadable: true, isServer: false }).then((webpackCompiler) => {
+    return createWebpackCompiler({ hotReloadable: true }).then((webpackCompiler) => {
       return new WebpackDevServer(
         webpackCompiler,
         {
