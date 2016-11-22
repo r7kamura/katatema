@@ -15,7 +15,7 @@ function updateCurrentHeadChildren() {
   });
 }
 
-export default class Head extends React.Component {
+class Head extends React.Component {
   static rewind() {
     const headerChildren = idealHeadChildren;
     idealHeadChildren = [];
@@ -40,3 +40,9 @@ export default class Head extends React.Component {
     return null;
   }
 }
+
+if (!global.Head) {
+  global.Head = Head;
+}
+
+export default Head

@@ -15,7 +15,7 @@ export default function render(relativePagePath, { hotReloadable }) {
     const modanData = { componentScript };
     const html = ReactDOMServer.renderToString(
       <Html
-        headChildren={Head.rewind()}
+        headChildren={(global.Head || Head).rewind()}
         hotReloadable={hotReloadable}
         innerHtml={innerHtml}
         modanData={modanData}
