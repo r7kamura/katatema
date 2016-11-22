@@ -1,10 +1,12 @@
 # katatema
 
-A minimalistic static site generator.
+A handy static site generator using React.js.
 
-- Build HTML files from React component
-- Zero setup by running Webpack in the background
-- Automatic refresh by Hot Module Replacement
+- Zero setup
+- Auto refresh
+- Sass support
+
+![demo](/images/demo.gif)
 
 ## Usage
 
@@ -13,7 +15,7 @@ A minimalistic static site generator.
 Install `katatema`:
 
 ```bash
-npm install katatema --save-dev
+npm install katatema --save
 ```
 
 and add scripts to the `package.json` like this:
