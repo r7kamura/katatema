@@ -1,7 +1,10 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import HeadManager from "./head-manager";
 
-let idealHeadChildren;
+let idealHeadChildren = [];
 const mountedHeads = new Set();
+const headManager = new HeadManager();
 
 function updateCurrentHeadChildren() {
   idealHeadChildren = ([...mountedHeads]).map((element) => {
@@ -11,8 +14,12 @@ function updateCurrentHeadChildren() {
   }).reduce((a, b) => {
     return a.concat(b);
   }, []).map((child) => {
-    return React.cloneElement(child);
+    const className = (child.className ? child.className + " " : "") + "next-head"
+    return React.cloneElement(child, { className });
   });
+  if (typeof window !== "undefined") {
+    headManager.updateHead(idealHeadChildren);
+  }
 }
 
 class Head extends React.Component {

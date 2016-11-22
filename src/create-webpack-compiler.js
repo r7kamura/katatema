@@ -61,7 +61,6 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
                   require.resolve("babel-plugin-module-resolver"),
                   {
                     alias: {
-                      react: require.resolve("react"),
                       "modan/head": require.resolve("./head"),
                     },
                   },

@@ -7,7 +7,7 @@ export default class Html extends React.Component {
       <html>
         <head>
           {
-            (this.props.headChildren || []).map((child, index) => {
+            this.props.headChildren.map((child, index) => {
               return React.cloneElement(child, { key: index });
             })
           }
