@@ -1,5 +1,3 @@
-import "webpack-dev-server/client?http://localhost:4000";
-
 import EventEmitter from "events";
 import React from "react";
 import ReactDOM from "react-dom";

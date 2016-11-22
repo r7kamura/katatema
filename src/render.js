@@ -10,7 +10,8 @@ export default function render(relativePagePath, { hotReloadable }) {
     const mod = require(path);
     const Component = mod.default || mod;
     const innerHtml = ReactDOMServer.renderToString(<Component/>);
-    const componentScript = fs.readFileSync(`.modan/server-bundles/${relativePagePath}`, "utf-8");
+    const directoryName = hotReloadable ? "client-bundles" : "server-bundles";
+    const componentScript = fs.readFileSync(`.modan/${directoryName}/${relativePagePath}`, "utf-8");
     const modanData = { componentScript };
     const html = ReactDOMServer.renderToString(
       <Html
