@@ -46,7 +46,7 @@
     "build:compile-bin": "babel bin --out-dir dist/bin",
     "build:compile-client": "webpack --config client-webpack-config.js",
     "build:compile-src": "babel src --out-dir dist",
-    "build:copy-files": "cp -r package.json LICENSE.txt client dist",
+    "build:copy-files": "cp -r package.json LICENSE.txt README.md client dist",
     "build:mkdir-bin": "mkdir -p dist/bin",
     "build:remove-dist": "rm -rf dist",
     "lint": "fixpack",
