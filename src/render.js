@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 
 export default function render(relativePagePath, { hotReloadable }) {
-  const path = `${process.cwd()}/.modan/server-bundles/${relativePagePath}`
+  const path = `${process.cwd()}/.modan/server-bundles/${relativePagePath}`;
   if (fs.existsSync(path)) {
     const mod = require(path);
     const Component = mod.default || mod;
