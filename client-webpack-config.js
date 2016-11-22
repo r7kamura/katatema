@@ -2,10 +2,10 @@ const webpack = require("webpack");
 
 const config = {
   entry: {
-    "client/modan-client.js": "./client/modan-client.js",
-    "client/modan-hot-reloadable-client.js": [
+    "client/katatema-client.js": "./client/katatema-client.js",
+    "client/katatema-hot-reloadable-client.js": [
       "webpack-dev-server/client?http://localhost:4000",
-      "./client/modan-hot-reloadable-client.js",
+      "./client/katatema-hot-reloadable-client.js",
     ],
   },
   module: {

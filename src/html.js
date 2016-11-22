@@ -14,7 +14,7 @@ export default class Html extends React.Component {
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: this.props.innerHtml }}/>
-          <script dangerouslySetInnerHTML={{ __html: `window.modanData = ${htmlescape(this.props.modanData)}` }}/>
+          <script dangerouslySetInnerHTML={{ __html: `window.katatemaData = ${htmlescape(this.props.katatemaData)}` }}/>
           {this.renderClientScript()}
         </body>
       </html>
@@ -23,9 +23,9 @@ export default class Html extends React.Component {
 
   renderClientScript() {
     if (this.props.hotReloadable) {
-      return <script src="/javascripts/modan-hot-reloadable-client.js"/>;
+      return <script src="/javascripts/katatema-hot-reloadable-client.js"/>;
     } else {
-      return <script src="/javascripts/modan-client.js"/>;
+      return <script src="/javascripts/katatema-client.js"/>;
     }
   }
 }

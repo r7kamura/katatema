@@ -36,6 +36,6 @@ export default function build() {
     if (!fs.existsSync("docs/javascripts")) {
       fs.mkdirSync("docs/javascripts");
     }
-    fs.copySync(`${__dirname}/client/modan-client.js`, "docs/javascripts/modan-client.js");
+    fs.copySync(`${__dirname}/client/katatema-client.js`, "docs/javascripts/katatema-client.js");
   });
 }

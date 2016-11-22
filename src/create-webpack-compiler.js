@@ -61,7 +61,7 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
                   require.resolve("babel-plugin-module-resolver"),
                   {
                     alias: {
-                      "modan/head": require.resolve("./head"),
+                      "katatema/head": require.resolve("./head"),
                     },
                   },
                 ],
@@ -78,7 +78,7 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
       output: {
         filename: "[name]",
         libraryTarget: "commonjs2",
-        path: `${currentWorkingDirectory}/.modan`,
+        path: `${currentWorkingDirectory}/.katatema`,
         publicPath: hotReloadable ? "http://localhost:4000/" : null,
       },
       plugins: getPlugins({ hotReloadable }),

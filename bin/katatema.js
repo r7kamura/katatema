@@ -9,7 +9,7 @@ const availableCommandNames = new Set([
 
 if (availableCommandNames.has(commandName)) {
   const spawnedProcess = spawn(
-    `${__dirname}/modan-${commandName}.js`,
+    `${__dirname}/katatema-${commandName}.js`,
     process.argv.slice(3),
     {
       customFds: [0, 1, 2],
@@ -24,6 +24,6 @@ if (availableCommandNames.has(commandName)) {
     process.exit(1);
   });
 } else {
-  console.error("Usage: modan <build|serve> [options]");
+  console.error("Usage: katatema <build|serve> [options]");
   process.exit(1);
 }

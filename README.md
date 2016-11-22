@@ -1,4 +1,4 @@
-# modan
+# katatema
 
 A minimalistic static site generator.
 
@@ -10,10 +10,10 @@ A minimalistic static site generator.
 
 ### Install
 
-Install `modan`:
+Install `katatema`:
 
 ```bash
-npm install modan --save-dev
+npm install katatema --save-dev
 ```
 
 and add scripts to the `package.json` like this:
@@ -21,8 +21,8 @@ and add scripts to the `package.json` like this:
 ```json
 {
   "scripts": {
-    "build": "modan build",
-    "serve": "modan serve"
+    "build": "katatema build",
+    "serve": "katatema serve"
   }
 }
 ```
@@ -36,7 +36,7 @@ import React from "react";
 export default () => <div>Hello</div>
 ```
 
-and execute `modan serve` to start a preview server on [http://localhost:3000](http://localhost:3000):
+and execute `katatema serve` to start a preview server on [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run serve
@@ -46,7 +46,7 @@ npm run serve
 
 ### Build
 
-Execute `modan build` to generate HTML files from `pages/*.js` into `docs/*.html`.
+Execute `katatema build` to generate HTML files from `pages/*.js` into `docs/*.html`.
 
 ```bash
 npm run build
@@ -61,7 +61,7 @@ npm run build
 Use `Head` component to change the content of `<head>` element.
 
 ```javascript
-import Head from "modan/head";
+import Head from "katatema/head";
 import React from "react";
 export default () => (
   <div>
@@ -94,7 +94,7 @@ export default () => (
 Import `*.scss` file as a React component, then embed it into `<Head>` element.
 
 ```javascript
-import Head from "modan/head";
+import Head from "katatema/head";
 import React from "react";
 import Style from "./main.scss";
 export default () => (

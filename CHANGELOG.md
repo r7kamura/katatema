@@ -2,7 +2,7 @@
 
 - Add HMR support on head element
 - Add Sass support
-- Rename cache directory from .modan-cache to .modan
+- Rename cache directory from .katatema-cache to .katatema
 
 ## 0.1.1
 
@@ -24,11 +24,11 @@
 
 ## 0.0.3
 
-- Add `modan serve` command
+- Add `katatema serve` command
 
 ## 0.0.2
 
-- Add `modan build` command
+- Add `katatema build` command
 
 ## 0.0.1
 

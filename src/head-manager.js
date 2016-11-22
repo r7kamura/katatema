@@ -47,7 +47,7 @@ export default class HeadManager {
 
   updateElements (type, components) {
     const headEl = document.getElementsByTagName("head")[0];
-    const oldTags = Array.prototype.slice.call(headEl.querySelectorAll(type + ".modan-head"));
+    const oldTags = Array.prototype.slice.call(headEl.querySelectorAll(type + ".katatema-head"));
     const newTags = components.map(reactElementToDOM).filter((newTag) => {
       for (let i = 0, len = oldTags.length; i < len; i++) {
         const oldTag = oldTags[i];

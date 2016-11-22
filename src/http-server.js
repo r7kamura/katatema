@@ -5,8 +5,8 @@ import send from "send";
 
 function createRouter() {
   const router = new Router();
-  router.get("/javascripts/modan-hot-reloadable-client.js", (request, response, params) => {
-    send(request, `${__dirname}/client/modan-hot-reloadable-client.js`).pipe(response);
+  router.get("/javascripts/katatema-hot-reloadable-client.js", (request, response, params) => {
+    send(request, `${__dirname}/client/katatema-hot-reloadable-client.js`).pipe(response);
   });
   router.get("/:path*", (request, response, params) => {
     try {
