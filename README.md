@@ -91,7 +91,7 @@ export default () => (
 
 ### How to add CSS?
 
-Import `*.scss` file as a React component and embed it into `<Head>` element.
+Import `*.scss` file as a React component, then embed it into `<Head>` element.
 
 ```javascript
 import Head from "modan/head";
@@ -115,4 +115,30 @@ export default () => (
 .bar {
   color: white;
 }
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello world</title>
+    <style>
+      .foo {
+        background-color: red;
+      }
+
+      .bar {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="foo">
+        <h1 class="bar">Hello world</h1>
+      </div>
+    </div>
+  </body>
+</html>
 ```
