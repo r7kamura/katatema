@@ -1,6 +1,7 @@
 # katatema
 
 [![npm](https://img.shields.io/npm/v/katatema.svg)](https://www.npmjs.com/package/katatema)
+[![CircleCI](https://img.shields.io/circleci/project/github/r7kamura/katatema.svg)](https://circleci.com/gh/r7kamura/katatema)
 
 A handy static site generator using React.js.
 
