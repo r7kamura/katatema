@@ -14,7 +14,7 @@ function updateCurrentHeadChildren() {
   }).reduce((a, b) => {
     return a.concat(b);
   }, []).map((child) => {
-    const className = (child.className ? child.className + " " : "") + "next-head"
+    const className = (child.className ? child.className + " " : "") + "katatema-head"
     return React.cloneElement(child, { className });
   });
   if (typeof window !== "undefined") {

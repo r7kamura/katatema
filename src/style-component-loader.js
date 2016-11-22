@@ -13,6 +13,7 @@ module.exports.pitch = function (remainingRequest) {
       return React.createElement(
         "style",
         {
+          className: "katatema-head",
           dangerouslySetInnerHTML: {
             __html: result.toString()
           }
