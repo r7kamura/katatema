@@ -142,7 +142,7 @@ export default () => (
 </html>
 ```
 
-## What is this inspired by?
+### What is this inspired by?
 
 - https://github.com/zeit/next.js
 - https://github.com/gatsbyjs/gatsby
