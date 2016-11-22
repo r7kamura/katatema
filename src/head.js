@@ -41,8 +41,6 @@ class Head extends React.Component {
   }
 }
 
-if (!global.Head) {
-  global.Head = Head;
-}
+global.Head = Head;
 
 export default Head
