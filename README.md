@@ -13,15 +13,15 @@ A handy static site generator using React.js.
 
 ## Usage
 
-### Install
+### How to install and set up katatema?
 
-Install `katatema`:
+Install `katatema` via npm:
 
 ```bash
 npm install katatema --save
 ```
 
-and add scripts to the `package.json` like this:
+Then add npm scripts to the `package.json` like this:
 
 ```json
 {
@@ -32,34 +32,34 @@ and add scripts to the `package.json` like this:
 }
 ```
 
-### Serve
+### How to preview our site?
 
-Create `pages/index.js` that exports a React component:
+For example, create `pages/index.js` that exports a React component:
 
 ```javascript
 import React from "react";
 export default () => <div>Hello</div>
 ```
 
-and execute `katatema serve` to start a preview server on [http://localhost:3000](http://localhost:3000):
+Then execute `katatema serve` to start a preview server:
 
 ```bash
 npm run serve
 ```
 
+You can preview your site on [http://localhost:3000](http://localhost:3000) like this:
+
 ![image](/images/screenshot-serve.png)
 
-### Build
+### How to build HTML from ./pages/\*.js ?
 
-Execute `katatema build` to generate HTML files from `pages/*.js` into `docs/*.html`.
+Invoke `katatema build` to generate HTML files from `pages/*.js` into `docs/*.html`.
 
 ```bash
 npm run build
 ```
 
 ![image](/images/screenshot-build.png)
-
-## FAQ
 
 ### How to insert elements into `<head>`?
 
@@ -153,7 +153,7 @@ export default () => (
 npm install gh-pages --save-dev
 ```
 
-Add `deploy` script to the `package.json` like this:
+When using `gh-pages`, your `package.json` looks like this:
 
 ```json
 {
@@ -165,7 +165,7 @@ Add `deploy` script to the `package.json` like this:
 }
 ```
 
-then execute `npm run deploy` to deploy your site to GitHub Pages.
+Then you can simply invoke `npm run deploy` to deploy.
 
 ```
 Cloning git@github.com:username/repo.git into node_modules/gh-pages/.cache
