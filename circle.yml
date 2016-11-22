@@ -1,0 +1,12 @@
+machine:
+  node:
+    version: 6.1.0
+  post:
+    - npm install --global yarn@0.16.1
+dependencies:
+  cache_directories:
+    - "~/.yarn-cache"
+  pre:
+    - yarn --version
+  override:
+    - yarn install
