@@ -1,3 +1,7 @@
+## 0.1.5
+
+- Optimize generated HTML size
+
 ## 0.1.4
 
 - Fix `<head>` update logic
