@@ -1,5 +1,7 @@
 # katatema
 
+[![npm](https://img.shields.io/npm/v/katatema.svg)](https://www.npmjs.com/package/katatema)
+
 A handy static site generator using React.js.
 
 - Zero setup
