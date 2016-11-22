@@ -26,6 +26,8 @@ function getPlugins({ hotReloadable }) {
       log: false,
       useHashIndex: false, // required not to cache removed files
     }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
   ];
   if (hotReloadable) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
