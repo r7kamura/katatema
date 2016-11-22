@@ -86,7 +86,7 @@ export default function createWebpackCompiler({ hotReloadable, isServer }) {
           ".scss",
         ],
         root: [
-          `${__dirname}/../../node_modules`,
+          `${__dirname}/../node_modules`,
           `${currentWorkingDirectory}/node_modules`,
         ],
       },
