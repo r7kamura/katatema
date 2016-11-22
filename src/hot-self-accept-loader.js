@@ -6,7 +6,7 @@ module.exports = function (content) {
       module.hot.accept();
       if (module.hot.status() !== "idle") {
         var Component = module.exports.default || module.exports;
-        window.katatema.eventEmitter.emit("update", { Component });
+        window.katatema.eventEmitter.emit("update", { Component: Component });
       }
     }
   `;
