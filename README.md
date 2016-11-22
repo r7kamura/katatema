@@ -145,6 +145,32 @@ export default () => (
 </html>
 ```
 
+### How to deploy to GitHub Pages?
+
+`gh-pages` command line utility helps you deploy your site to GitHub Pages.
+
+```bash
+npm install gh-pages --save-dev
+```
+
+Add scripts to the `package.json` like this:
+
+```json
+{
+  "scripts": {
+    "build": "katatema build",
+    "serve": "katatema serve",
+    "deploy": "npm run build && gh-pages --dist docs",
+  }
+}
+```
+
+then execute it to build your pages and deploy them to GitHub Pages.
+
+```bash
+npm run deploy
+```
+
 ### What is this inspired by?
 
 - [PHP](https://github.com/php/php-src)
