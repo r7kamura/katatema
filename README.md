@@ -147,5 +147,6 @@ export default () => (
 
 ### What is this inspired by?
 
-- https://github.com/zeit/next.js
-- https://github.com/gatsbyjs/gatsby
+- [next.js](https://github.com/zeit/next.js)
+- [gatsuby](https://github.com/gatsbyjs/gatsby)
+- [PHP](https://github.com/php/php-src)
