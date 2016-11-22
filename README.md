@@ -153,7 +153,7 @@ export default () => (
 npm install gh-pages --save-dev
 ```
 
-Add scripts to the `package.json` like this:
+Add `deploy` script to the `package.json` like this:
 
 ```json
 {
@@ -165,10 +165,19 @@ Add scripts to the `package.json` like this:
 }
 ```
 
-then execute it to build your pages and deploy them to GitHub Pages.
+then execute `npm run deploy` to deploy your site to GitHub Pages.
 
-```bash
-npm run deploy
+```
+Cloning git@github.com:username/repo.git into node_modules/gh-pages/.cache
+Cleaning
+Fetching origin
+Checking out origin/gh-pages
+Removing files
+Copying files
+Adding all
+Committing
+Pushing
+Published
 ```
 
 ### What is this inspired by?
