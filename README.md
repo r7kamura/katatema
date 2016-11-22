@@ -54,11 +54,11 @@ npm run build
 
 ![image](/images/screenshot-build.png)
 
-## Tips
+## FAQ
 
-### Head
+### How to add elements into `<head>` element?
 
-Use `Head` component to change the `<head>` element.
+Use `Head` component to change the content of `<head>` element.
 
 ```javascript
 import Head from "modan/head";
@@ -89,7 +89,9 @@ export default () => (
 </html>
 ```
 
-### CSS
+### How to add CSS?
+
+Import `*.scss` file as a React component and embed it into `<Head>` element.
 
 ```javascript
 import Head from "modan/head";
