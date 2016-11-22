@@ -1,7 +1,7 @@
 {
   "name": "katatema",
   "description": "A handy static site generator using React.js.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Ryo Nakamura <r7kamura@gmail.com> (https://github.com/r7kamura)",
   "bin": "bin/katatema.js",
   "bugs": "https://github.com/r7kamura/katatema/issues",

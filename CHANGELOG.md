@@ -1,3 +1,9 @@
+## 0.1.4
+
+- Fix `<head>` update logic
+- Update package description
+- Put README on npm
+
 ## 0.1.3
 
 - Rename from modan to katatema
