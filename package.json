@@ -50,6 +50,6 @@
     "build:mkdir-bin": "mkdir -p dist/bin",
     "build:remove-dist": "rm -rf dist",
     "lint": "fixpack",
-    "test": "yarn run lint"
+    "test": "yarn run lint && yarn run build"
   }
 }
