@@ -58,7 +58,7 @@ npm run build
 
 ## FAQ
 
-### How to add elements into `<head>` element?
+### How to insert elements into `<head>`?
 
 Use `Head` component to change the content of `<head>` element.
 
@@ -91,19 +91,16 @@ export default () => (
 </html>
 ```
 
-### How to add CSS?
+### How to use CSS?
 
-Import `*.scss` file as a React component, then embed it into `<Head>` element.
+Import `*.scss` file as a React component, then embed it.
 
 ```javascript
-import Head from "katatema/head";
 import React from "react";
 import Style from "./main.scss";
 export default () => (
   <div className="foo">
-    <Head>
-      <Style/>
-    </Head>
+    <Style/>
     <h1 className="bar">Hello world</h1>
   </div>
 )
@@ -144,3 +141,8 @@ export default () => (
   </body>
 </html>
 ```
+
+## What is this inspired by?
+
+- https://github.com/zeit/next.js
+- https://github.com/gatsbyjs/gatsby
