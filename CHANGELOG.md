@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Rename from modan to katatema
+
 ## 0.1.2
 
 - Add HMR support on head element
