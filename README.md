@@ -86,7 +86,7 @@ Dramatically speed development.
 
 ### SCSS support
 
-We officially support [Sass](http://sass-lang.com/) for styling pages.
+We officially support [Sass](http://sass-lang.com/) to style pages.
 Import `*.scss` file as a React component, then embed it.
 
 ```javascript
