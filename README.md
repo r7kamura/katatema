@@ -125,7 +125,9 @@ export default () => (
 
 ## FAQ
 
-### How to deploy to GitHub Pages?
+<details>
+
+<summary>How to deploy to GitHub Pages?</summary>
 
 `gh-pages` command line utility helps you deploy your site to GitHub Pages.
 
@@ -160,8 +162,15 @@ Pushing
 Published
 ```
 
-### What is this inspired by?
+</details>
+
+<details>
+
+<summary>What is this inspired by?</summary>
 
 - [PHP](https://github.com/php/php-src)
 - [next.js](https://github.com/zeit/next.js)
 - [gatsuby](https://github.com/gatsbyjs/gatsby)
+- [sitespec](https://github.com/r7kamura/sitespec)
+
+</details>
