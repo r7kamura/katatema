@@ -7,10 +7,8 @@ A handy static site generator using React.js.
 
 - Minimal setup
 - Intuitive templating
-- Auto refresh
-- Sass support
-
-![demo](/images/demo.gif)
+- Hot reloading
+- SCSS support
 
 ## Usage
 
@@ -40,7 +38,7 @@ Add a script to `package.json` like this:
 }
 ```
 
-Run and open the preview server on [http://localhost:3000](http://localhost:3000):
+Run it and open the preview server on [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run serve
@@ -48,16 +46,18 @@ npm run serve
 
 ![image](/images/screenshot-serve.png)
 
+That's all. No time-consuming configuration required. (e.g. .babelrc, webpack.config.js, gulpfile.js...)
+
 ### Intuitive templating
 
 We build sites like it's 1990s, or like PHP in those good old days.
 Files are translated into HTML pages by using the filesystem as an API.
-Add a JavaScript fiel at `./pages/index.js` and it'll be converted to `./docs/index.html`.
+Add a JavaScript file at `./pages/index.js` and it'll be converted to `./docs/index.html`.
 
 ```
-./pages/index.js  ---converted-->  ./docs/index.html
-./pages/about.js  ---converted-->  ./docs/about.html
-./pages/usage.js  ---converted-->  ./docs/usage.html
+./pages/index.js  ---converted--->  ./docs/index.html
+./pages/about.js  ---converted--->  ./docs/about.html
+./pages/usage.js  ---converted--->  ./docs/usage.html
 ```
 
 To build HTML files, add a script to `package.json` like this:
@@ -70,47 +70,23 @@ To build HTML files, add a script to `package.json` like this:
 }
 ```
 
-And then just run `npm run build`.
+And then just run it.
 
-## FAQ
-
-![image](/images/screenshot-build.png)
-
-### How to insert elements into `<head>`?
-
-Use `Head` component to change the content of `<head>` element.
-
-```javascript
-import Head from "katatema/head";
-import React from "react";
-export default () => (
-  <div>
-    <Head>
-      <meta charset="utf-8">
-      <title>Hello world</title>
-    </Head>
-    <h1>Hello world</h1>
-  </div>
-)
+```bash
+npm run build
 ```
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello world</title>
-  </head>
-  <body>
-    <div id="container">
-      Hello world
-    </div>
-  </body>
-</html>
-```
+### Hot reloading
 
-### How to use CSS?
+All pages will automatically refreshed without page reloading on the preview server.
+This is powered by webpack's Hot Module Replacement feature in the background.
+Dramatically speed development.
 
+![demo](/images/demo.gif)
+
+### SCSS support
+
+We officially support [Sass](http://sass-lang.com/) for styling pages.
 Import `*.scss` file as a React component, then embed it.
 
 ```javascript
@@ -128,37 +104,26 @@ export default () => (
 .foo {
   background-color: red;
 }
-
 .bar {
   color: white;
 }
 ```
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello world</title>
-    <style>
-      .foo {
-        background-color: red;
-      }
-
-      .bar {
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <div class="foo">
-        <h1 class="bar">Hello world</h1>
-      </div>
-    </div>
-  </body>
-</html>
+<style>
+  .foo {
+    background-color: red;
+  }
+  .bar {
+    color: white;
+  }
+</style>
+<div class="foo">
+  <h1 class="bar">Hello world</h1>
+</div>
 ```
+
+## FAQ
 
 ### How to deploy to GitHub Pages?
 
