@@ -5,6 +5,7 @@
 
 A handy static site generator using React.js.
 
+- Intuitive templating
 - Zero setup
 - Auto refresh
 - Sass support
