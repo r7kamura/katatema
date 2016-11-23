@@ -9,6 +9,7 @@ A handy static site generator using React.js.
 - Intuitive templating
 - Hot reloading
 - SCSS support
+- Head support
 
 ## Usage
 
@@ -121,6 +122,23 @@ export default () => (
 <div class="foo">
   <h1 class="bar">Hello</h1>
 </div>
+```
+
+### Head support
+
+Use our `<Head>` component to append elements to the `<head>` of the page.
+
+```javascript
+import Head from "katatema/head";
+import React from "react";
+export default () => (
+  <div>
+    <Head>
+      <title>Hello</title>
+    </Head>
+    <p>Hello</p>
+  </div>
+)
 ```
 
 ## FAQ
