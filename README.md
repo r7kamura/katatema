@@ -25,7 +25,7 @@ Write `./pages/index.js` as your 1st page:
 
 ```javascript
 import React from "react";
-export default () => <div>Hello world!</div>
+export default () => <div>Hello!</div>
 ```
 
 Add a script to `package.json` like this:
@@ -95,7 +95,7 @@ import Style from "./main.scss";
 export default () => (
   <div className="foo">
     <Style/>
-    <h1 className="bar">Hello world</h1>
+    <h1 className="bar">Hello</h1>
   </div>
 )
 ```
@@ -119,7 +119,7 @@ export default () => (
   }
 </style>
 <div class="foo">
-  <h1 class="bar">Hello world</h1>
+  <h1 class="bar">Hello</h1>
 </div>
 ```
 
