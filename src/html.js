@@ -23,9 +23,9 @@ export default class Html extends React.Component {
 
   renderClientScript() {
     if (this.props.hotReloadable) {
-      return <script src="/javascripts/katatema-hot-reloadable-client.js"/>;
+      return <script src="javascripts/katatema-hot-reloadable-client.js"/>;
     } else {
-      return <script src="/javascripts/katatema-client.js"/>;
+      return <script src="javascripts/katatema-client.js"/>;
     }
   }
 }
