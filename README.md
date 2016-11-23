@@ -5,8 +5,8 @@
 
 A handy static site generator using React.js.
 
+- Minimal setup
 - Intuitive templating
-- Zero setup
 - Auto refresh
 - Sass support
 
@@ -14,51 +14,65 @@ A handy static site generator using React.js.
 
 ## Usage
 
-### How to install and set up katatema?
+### Minimal setup
 
-Install `katatema` via npm:
+To start using it, run this inside a new directory:
 
 ```bash
 npm install katatema --save
+mkdir pages
 ```
 
-Then add npm scripts to the `package.json` like this:
+Write `./pages/index.js` as your 1st page:
+
+```javascript
+import React from "react";
+export default () => <div>Hello world!</div>
+```
+
+Add a script to `package.json` like this:
 
 ```json
 {
   "scripts": {
-    "build": "katatema build",
     "serve": "katatema serve"
   }
 }
 ```
 
-### How to preview our site?
-
-For example, create `pages/index.js` that exports a React component:
-
-```javascript
-import React from "react";
-export default () => <div>Hello</div>
-```
-
-Then execute `katatema serve` to start a preview server:
+Run and open the preview server on [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run serve
 ```
 
-You can preview your site on [http://localhost:3000](http://localhost:3000) like this:
-
 ![image](/images/screenshot-serve.png)
 
-### How to build HTML from ./pages/\*.js ?
+### Intuitive templating
 
-Invoke `katatema build` to generate HTML files from `pages/*.js` into `docs/*.html`.
+We build sites like it's 1990s, or like PHP in those good old days.
+Files are translated into HTML pages by using the filesystem as an API.
+Add a JavaScript fiel at `./pages/index.js` and it'll be converted to `./docs/index.html`.
 
-```bash
-npm run build
 ```
+./pages/index.js  ---converted-->  ./docs/index.html
+./pages/about.js  ---converted-->  ./docs/about.html
+./pages/usage.js  ---converted-->  ./docs/usage.html
+```
+
+To build HTML files, add a script to `package.json` like this:
+
+```json
+{
+  "scripts": {
+    "build": "katatema build"
+  }
+}
+```
+
+And then just run `npm run build`.
+
+## FAQ
 
 ![image](/images/screenshot-build.png)
 
