@@ -1,3 +1,7 @@
+## 0.1.6
+
+- Support hosting on sub directory
+
 ## 0.1.5
 
 - Optimize generated HTML size
