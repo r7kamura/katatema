@@ -142,7 +142,7 @@ When using `gh-pages`, your `package.json` looks like this:
   "scripts": {
     "build": "katatema build",
     "serve": "katatema serve",
-    "deploy": "npm run build && gh-pages --dist docs",
+    "deploy": "npm run build && gh-pages --dist docs"
   }
 }
 ```
