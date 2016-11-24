@@ -1,3 +1,8 @@
+## 0.1.7
+
+- Bump up react and react-dom versions
+- Fix HTMLDOMPropertyConfig path
+
 ## 0.1.6
 
 - Support hosting on sub directory
