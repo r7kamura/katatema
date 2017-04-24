@@ -12,6 +12,9 @@ export default class WebpackServer {
         webpackCompiler,
         {
           clientLogLevel: "warning",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
           hot: true,
           noInfo: true,
           publicPath: "/",

@@ -1,3 +1,7 @@
+## 0.1.8
+
+- Fix bug about CORS
+
 ## 0.1.7
 
 - Bump up react and react-dom versions
